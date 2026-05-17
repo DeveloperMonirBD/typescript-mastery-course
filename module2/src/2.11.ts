@@ -21,7 +21,7 @@
     // Partial: Optional
     type PersonPartial = Partial<Person>
     
-    // ReadOnly: change korea jabe
+    // ReadOnly: change kora jabe na
     
     type PersonReadOnly = Readonly<Person>
 
