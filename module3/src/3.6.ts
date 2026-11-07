@@ -12,6 +12,10 @@
             this._balance = balance;
         }
 
+        // public addDeposit(amount: number) {
+        //     this._balance = this._balance + amount;
+        // }
+
         // seter
         set deposit(amount: number) {
             this._balance = this._balance + amount;

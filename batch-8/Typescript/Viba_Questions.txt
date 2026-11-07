@@ -1,0 +1,1499 @@
+# TypeScript Interview Questions & Answers (বাংলা অর্থসহ)
+
+তোমার Full-Stack Developer interview preparation-এর জন্য Basic থেকে Advanced পর্যন্ত গুরুত্বপূর্ণ
+TypeScript interview questions এবং answers সাজিয়ে দিচ্ছি।
+
+প্রতিটি প্রশ্নের সঙ্গে থাকবে:
+
+1. Interview Question – ইংরেজিতে প্রশ্ন।
+2. English Answer – Interview-তে বলার মতো সহজ উত্তর।
+3. বাংলা অর্থ – প্রশ্ন ও উত্তরের বাংলা ব্যাখ্যা।
+4. Code Example – প্রয়োজন অনুযায়ী কোড উদাহরণ।
+
+প্রথমে Basic TypeScript দিয়ে শুরু করি। এরপর ধীরে ধীরে Intermediate ও Advanced topics-এ যাব।
+
+# Part 1: TypeScript Basic Interview Questions
+
+## 1. What is TypeScript?
+
+বাংলা প্রশ্ন: TypeScript কী?
+
+English Answer:
+
+TypeScript is a strongly typed programming language built on top of JavaScript. It adds static
+typing features to JavaScript and helps developers catch errors during development. TypeScript code
+is compiled into JavaScript.
+
+বাংলা অর্থ:
+
+TypeScript হলো JavaScript-এর ওপর ভিত্তি করে তৈরি একটি programming language। এটি JavaScript-এর সঙ্গে
+static typing সুবিধা যোগ করে। ফলে কোড রান করার আগেই অনেক ভুল খুঁজে পাওয়া যায়। TypeScript শেষ পর্যন্ত
+JavaScript-এ compile হয়।
+
+Example:
+
+```
+let username: string = "Monir";
+let age: number = 25;
+
+function greet(name: string): string {
+  return `Hello ${name}`;
+}
+
+console.log(greet(username));
+```
+
+## 2. Why do we use TypeScript?
+
+বাংলা প্রশ্ন: আমরা কেন TypeScript ব্যবহার করি?
+
+English Answer:
+
+We use TypeScript to make our code more reliable, maintainable, and easier to understand. It helps
+us catch errors early, provides better IDE support, and improves code quality in large applications.
+
+বাংলা অর্থ:
+
+আমরা TypeScript ব্যবহার করি কোডকে আরও নির্ভরযোগ্য, সহজে maintainable এবং সহজে বোঝার উপযোগী করার
+জন্য।
+
+এর সুবিধা:
+
+- Compile time-এ error খুঁজে পাওয়া যায়।
+- Better autocomplete পাওয়া যায়।
+- Code maintain করা সহজ হয়।
+- Large application-এ type safety পাওয়া যায়।
+
+## 3. What are the main differences between JavaScript and TypeScript?
+
+বাংলা প্রশ্ন: JavaScript এবং TypeScript-এর মধ্যে প্রধান পার্থক্য কী?
+
+English Answer:
+
+JavaScript is a dynamically typed programming language, whereas TypeScript is a statically typed
+superset of JavaScript. TypeScript supports interfaces, type annotations, and other advanced type
+features. It also compiles into JavaScript.
+
+বাংলা অর্থ:
+
+JavaScript dynamically typed, অর্থাৎ variable-এর type runtime-এ নির্ধারিত হতে পারে। অন্যদিকে
+TypeScript-এ static type checking সুবিধা রয়েছে। TypeScript-এ Interface, Type Annotation এবং advanced
+type system ব্যবহার করা যায়।
+
+| JavaScript                        | TypeScript                             |
+| --------------------------------- | -------------------------------------- |
+| Dynamically typed                 | Static type checking                   |
+| No built-in interface syntax      | Supports interfaces                    |
+| Runs directly in browsers         | Compiles into JavaScript               |
+| Type errors may appear at runtime | Many type errors caught before runtime |
+
+## 4. What are Type Annotations?
+
+বাংলা প্রশ্ন: Type Annotation কী?
+
+English Answer:
+
+Type annotations are used to explicitly specify the data type of a variable, function parameter, or
+return value in TypeScript.
+
+বাংলা অর্থ:
+
+Type Annotation হলো variable, function parameter অথবা return value-এর data type স্পষ্টভাবে নির্ধারণ
+করে দেওয়া।
+
+Example:
+
+```
+let name: string = "Monir";
+let age: number = 25;
+let isActive: boolean = true;
+
+function add(a: number, b: number): number {
+  return a + b;
+}
+```
+
+## 5. What are the basic data types in TypeScript?
+
+বাংলা প্রশ্ন: TypeScript-এর basic data types কী কী?
+
+English Answer:
+
+TypeScript provides several basic types, such as string, number, boolean, null, undefined, object,
+array, tuple, enum, any, unknown, and never.
+
+বাংলা অর্থ:
+
+TypeScript-এ বিভিন্ন ধরনের data type রয়েছে। যেমন:
+
+```
+let username: string = "Monir";
+let age: number = 25;
+let isActive: boolean = true;
+
+let skills: string[] = ["React", "Next.js"];
+
+let user: {
+  name: string;
+  age: number;
+} = {
+  name: "Monir",
+  age: 25,
+};
+```
+
+## 6. What is Type Inference?
+
+বাংলা প্রশ্ন: Type Inference কী?
+
+English Answer:
+
+Type inference is a feature in TypeScript that automatically determines the type of a variable based
+on its assigned value. So, we don't always need to explicitly write the type.
+
+বাংলা অর্থ:
+
+Type Inference হলো TypeScript-এর এমন একটি সুবিধা, যার মাধ্যমে variable-এর value দেখে TypeScript নিজে
+থেকেই data type বুঝে নেয়।
+
+Example:
+
+```
+let username = "Monir";
+let age = 25;
+let isActive = true;
+```
+
+এখানে TypeScript নিজে থেকেই বুঝতে পারে:
+
+- username → string
+- age → number
+- isActive → boolean
+
+## 7. What is the difference between `any` and `unknown`?
+
+বাংলা প্রশ্ন: `any` এবং `unknown`-এর মধ্যে পার্থক্য কী?
+
+English Answer:
+
+Both any and unknown can hold values of any type. However, any disables type checking, while unknown
+requires us to check the type before performing operations on the value. Therefore, unknown is safer
+than any.
+
+বাংলা অর্থ:
+
+দুটোই যেকোনো ধরনের value রাখতে পারে।
+
+কিন্তু `any` ব্যবহার করলে TypeScript-এর type checking অনেকটাই বন্ধ হয়ে যায়। অন্যদিকে `unknown`
+ব্যবহার করলে value নিয়ে কাজ করার আগে type check করতে হয়।
+
+Example:
+
+```
+let value1: any = "Hello";
+console.log(value1.toUpperCase());
+
+let value2: unknown = "Hello";
+
+if (typeof value2 === "string") {
+  console.log(value2.toUpperCase());
+}
+```
+
+Interview Tip
+
+`unknown` is safer than `any`.
+
+## 8. What is the difference between `type` and `interface`?
+
+বাংলা প্রশ্ন: Type এবং Interface-এর মধ্যে পার্থক্য কী?
+
+English Answer:
+
+Both type and interface are used to define the structure of data in TypeScript. However, interfaces
+can be extended and merged through declaration merging, while type aliases support unions,
+intersections, and other types of type expressions.
+
+বাংলা অর্থ:
+
+`type` এবং `interface` দুটোই data structure define করতে ব্যবহার করা হয়।
+
+তবে:
+
+- Interface ব্যবহার করে `extends` করা যায়।
+- Interface-এ Declaration Merging সম্ভব।
+- Type দিয়ে Union, Intersection, Primitive এবং অন্যান্য type define করা যায়।
+
+Example:
+
+```
+interface User {
+  name: string;
+  age: number;
+}
+
+type Product = {
+  title: string;
+  price: number;
+};
+```
+
+Interface extension:
+
+```
+interface Admin extends User {
+  role: string;
+}
+```
+
+Type intersection:
+
+```
+type AdminUser = User & {
+  role: string;
+};
+```
+
+## 9. What is an Array in TypeScript?
+
+বাংলা প্রশ্ন: TypeScript-এ Array কী?
+
+English Answer:
+
+An array is a collection of multiple values of the same or compatible data types. In TypeScript, we
+can define the type of array elements.
+
+বাংলা অর্থ:
+
+Array হলো একাধিক value সংরক্ষণ করার একটি data structure। TypeScript-এ Array-এর element কোন data
+type-এর হবে, তা নির্ধারণ করা যায়।
+
+Example:
+
+```
+let numbers: number[] = [10, 20, 30];
+
+let names: string[] = [
+  "Monir",
+  "Rahim",
+  "Karim",
+];
+
+let scores: Array<number> = [80, 90, 100];
+```
+
+## 10. What is a Tuple in TypeScript?
+
+বাংলা প্রশ্ন: Tuple কী?
+
+English Answer:
+
+A tuple is a special type of array where the number of elements and their types are fixed at
+specific positions.
+
+বাংলা অর্থ:
+
+Tuple হলো এমন একটি special array, যেখানে নির্দিষ্ট position অনুযায়ী element-এর data type নির্ধারণ
+করা থাকে।
+
+Example:
+
+```
+let user: [string, number, boolean];
+
+user = ["Monir", 25, true];
+```
+
+এখানে:
+
+- First position → string
+- Second position → number
+- Third position → boolean
+
+## 11. What is an Enum in TypeScript?
+
+বাংলা প্রশ্ন: Enum কী?
+
+English Answer:
+
+An enum is a feature in TypeScript that allows us to define a set of named constants. It makes code
+more readable and manageable.
+
+বাংলা অর্থ:
+
+Enum ব্যবহার করে কিছু নির্দিষ্ট named constant তৈরি করা যায়। এতে কোড আরও readable হয়।
+
+Example:
+
+```
+enum Role {
+  Admin = "ADMIN",
+  User = "USER",
+  Guest = "GUEST",
+}
+
+let userRole: Role = Role.Admin;
+```
+
+## 12. What is the `never` type?
+
+বাংলা প্রশ্ন: Never type কী?
+
+English Answer:
+
+The never type represents values that never occur. It is commonly used for functions that never
+return normally, such as functions that always throw an error or run indefinitely.
+
+বাংলা অর্থ:
+
+`never` এমন একটি type, যা এমন value বোঝায় যা কখনোই তৈরি হয় না। সাধারণত কোনো function সবসময় error
+throw করলে বা অনির্দিষ্টকাল চললে এটি ব্যবহার করা হয়।
+
+Example:
+
+```
+function throwError(message: string): never {
+  throw new Error(message);
+}
+```
+
+## 13. What is the `void` type?
+
+বাংলা প্রশ্ন: Void type কী?
+
+English Answer:
+
+The void type indicates that a function does not return a meaningful value.
+
+বাংলা অর্থ:
+
+কোনো function যদি meaningful কোনো value return না করে, তখন তার return type হিসেবে `void` ব্যবহার করা
+হয়।
+
+Example:
+
+```
+function greet(): void {
+  console.log("Hello Monir");
+}
+```
+
+## 14. What is Optional Property in TypeScript?
+
+বাংলা প্রশ্ন: Optional Property কী?
+
+English Answer:
+
+An optional property is a property that may or may not exist in an object. We use a question mark
+(?) to define an optional property.
+
+বাংলা অর্থ:
+
+Object-এর কোনো property থাকা বাধ্যতামূলক নয়—এমন property-কে Optional Property বলে।
+
+Example:
+
+```
+interface User {
+  name: string;
+  age?: number;
+}
+
+const user: User = {
+  name: "Monir",
+};
+```
+
+এখানে `age` থাকা বাধ্যতামূলক নয়।
+
+## 15. What is Union Type?
+
+বাংলা প্রশ্ন: Union Type কী?
+
+English Answer:
+
+A union type allows a variable to hold values of multiple specified types. We use the pipe (|)
+operator to define a union type.
+
+বাংলা অর্থ:
+
+Union Type ব্যবহার করে একটি variable-এ একাধিক নির্দিষ্ট data type-এর value রাখা যায়।
+
+Example:
+
+```
+let id: string | number;
+
+id = 101;
+id = "USER101";
+```
+
+এখানে `id` string অথবা number হতে পারবে।
+
+# Part 2: TypeScript Intermediate Interview Questions
+
+## 16. What is Type Narrowing?
+
+বাংলা প্রশ্ন: Type Narrowing কী?
+
+English Answer:
+
+Type narrowing is a process of reducing a variable's type to a more specific type using conditions
+or type checks. It helps TypeScript understand which type we are working with.
+
+বাংলা অর্থ:
+
+Type Narrowing হলো কোনো variable-এর একাধিক সম্ভাব্য type থেকে নির্দিষ্ট type-এ সীমাবদ্ধ করা। সাধারণত
+`typeof`, `instanceof` এবং condition ব্যবহার করে এটি করা হয়।
+
+Example:
+
+```
+function printValue(value: string | number) {
+  if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  } else {
+    console.log(value.toFixed(2));
+  }
+}
+```
+
+## 17. What is Type Assertion?
+
+বাংলা প্রশ্ন: Type Assertion কী?
+
+English Answer:
+
+Type assertion allows us to tell TypeScript that we know more about the type of a value than it can
+infer. It does not change the actual value at runtime.
+
+বাংলা অর্থ:
+
+Type Assertion ব্যবহার করে TypeScript-কে জানানো হয় যে কোনো value-এর নির্দিষ্ট type সম্পর্কে আমাদের
+নিশ্চিত ধারণা আছে। এটি runtime-এ value-এর type পরিবর্তন করে না।
+
+Example:
+
+```
+let value: unknown = "Hello TypeScript";
+
+let length = (value as string).length;
+```
+
+আরেকটি syntax:
+
+```
+let username = <string>value;
+```
+
+## 18. What is an Intersection Type?
+
+বাংলা প্রশ্ন: Intersection Type কী?
+
+English Answer:
+
+An intersection type combines multiple types into one type. We use the ampersand (&) operator to
+create an intersection type.
+
+বাংলা অর্থ:
+
+একাধিক type একসঙ্গে combine করে নতুন একটি type তৈরি করাকে Intersection Type বলে।
+
+Example:
+
+```
+type User = {
+  name: string;
+};
+
+type Admin = {
+  role: string;
+};
+
+type AdminUser = User & Admin;
+
+const user: AdminUser = {
+  name: "Monir",
+  role: "Admin",
+};
+```
+
+## 19. What is a Literal Type?
+
+বাংলা প্রশ্ন: Literal Type কী?
+
+English Answer:
+
+A literal type allows a variable to have only specific predefined values instead of any value of a
+general type.
+
+বাংলা অর্থ:
+
+Literal Type ব্যবহার করলে variable-এ শুধু নির্দিষ্ট কিছু value রাখা যায়।
+
+Example:
+
+```
+let status: "success" | "error" | "loading";
+
+status = "success";
+// status = "pending"; // Error
+```
+
+## 20. What is a Function Type in TypeScript?
+
+বাংলা প্রশ্ন: Function Type কী?
+
+English Answer:
+
+A function type defines the types of function parameters and its return value. It helps ensure that
+functions receive and return the expected types.
+
+বাংলা অর্থ:
+
+Function Type দিয়ে function-এর parameter এবং return value-এর data type নির্ধারণ করা হয়।
+
+Example:
+
+```
+type AddFunction = (
+  a: number,
+  b: number
+) => number;
+
+const add: AddFunction = (a, b) => {
+  return a + b;
+};
+```
+
+## 21. What are Generics in TypeScript?
+
+বাংলা প্রশ্ন: Generics কী?
+
+English Answer:
+
+Generics allow us to create reusable and flexible functions, classes, and interfaces that work with
+different data types while maintaining type safety.
+
+বাংলা অর্থ:
+
+Generics ব্যবহার করে এমন function, class অথবা interface তৈরি করা যায়, যেগুলো বিভিন্ন data type-এর
+সঙ্গে কাজ করতে পারে এবং type safety বজায় রাখে।
+
+Example:
+
+```
+function identity<T>(value: T): T {
+  return value;
+}
+
+identity<string>("Monir");
+identity<number>(100);
+identity<boolean>(true);
+```
+
+এখানে `T` একটি generic type parameter। এটি বিভিন্ন type গ্রহণ করতে পারে।
+
+## 22. What is a Generic Interface?
+
+বাংলা প্রশ্ন: Generic Interface কী?
+
+English Answer:
+
+A generic interface is an interface that accepts type parameters. It allows us to define reusable
+data structures for different types.
+
+বাংলা অর্থ:
+
+যে Interface type parameter গ্রহণ করতে পারে, তাকে Generic Interface বলে।
+
+Example:
+
+```
+interface ApiResponse<T> {
+  success: boolean;
+  data: T;
+}
+
+interface User {
+  name: string;
+  email: string;
+}
+
+const response: ApiResponse<User> = {
+  success: true,
+  data: {
+    name: "Monir",
+    email: "monir@example.com",
+  },
+};
+```
+
+## 23. What is a Generic Constraint?
+
+বাংলা প্রশ্ন: Generic Constraint কী?
+
+English Answer:
+
+Generic constraints allow us to restrict the types that can be passed to a generic function or type.
+We use the extends keyword to define constraints.
+
+বাংলা অর্থ:
+
+Generic Constraint দিয়ে generic type-এর জন্য কিছু নির্দিষ্ট শর্ত বা সীমাবদ্ধতা তৈরি করা যায়।
+
+Example:
+
+```
+function getLength<T extends { length: number }>(
+  value: T
+): number {
+  return value.length;
+}
+
+getLength("TypeScript");
+getLength([1, 2, 3]);
+
+// getLength(100); // Error
+```
+
+## 24. What is the difference between `interface` and `type` extension?
+
+বাংলা প্রশ্ন: Interface এবং Type কীভাবে extend বা combine করা যায়?
+
+English Answer:
+
+An interface can extend another interface using the extends keyword. A type alias can combine
+existing types using intersection (&). Both approaches allow us to reuse existing type definitions.
+
+বাংলা অর্থ:
+
+Interface-এর ক্ষেত্রে `extends` ব্যবহার করে অন্য interface-এর property নেওয়া যায়। Type-এর ক্ষেত্রে
+Intersection (`&`) ব্যবহার করে একাধিক type combine করা যায়।
+
+Example:
+
+```
+interface Person {
+  name: string;
+}
+
+interface Developer extends Person {
+  skills: string[];
+}
+```
+
+```
+type PersonType = {
+  name: string;
+};
+
+type DeveloperType = PersonType & {
+  skills: string[];
+};
+```
+
+## 25. What is Optional Chaining?
+
+বাংলা প্রশ্ন: Optional Chaining কী?
+
+English Answer:
+
+Optional chaining allows us to safely access nested object properties without causing an error if an
+intermediate property is null or undefined. We use the question mark and dot operator (?.).
+
+বাংলা অর্থ:
+
+Object-এর nested property access করার সময় মাঝখানের কোনো property `null` অথবা `undefined` হলে error
+এড়াতে Optional Chaining ব্যবহার করা হয়।
+
+Example:
+
+```
+const user = {
+  profile: {
+    name: "Monir",
+  },
+};
+
+console.log(user.profile?.name);
+```
+
+## 26. What is Nullish Coalescing?
+
+বাংলা প্রশ্ন: Nullish Coalescing Operator কী?
+
+English Answer:
+
+The nullish coalescing operator (??) returns the right-hand value only when the left-hand value is
+null or undefined.
+
+বাংলা অর্থ:
+
+`??` operator ব্যবহার করলে বাম পাশের value `null` অথবা `undefined` হলেই শুধু ডান পাশের default value
+return করবে।
+
+Example:
+
+```
+const username = null;
+
+const result = username ?? "Guest";
+
+console.log(result); // Guest
+```
+
+Important difference:
+
+```
+console.log(0 || 100);  // 100
+console.log(0 ?? 100);  // 0
+```
+
+`||` falsy value চেক করে, কিন্তু `??` শুধু null এবং undefined চেক করে।
+
+## 27. What is the difference between `readonly` and `const`?
+
+বাংলা প্রশ্ন: Readonly এবং Const-এর মধ্যে পার্থক্য কী?
+
+English Answer:
+
+Const is used to prevent reassignment of a variable, while readonly is used to prevent modification
+of a property in an object or class after initialization.
+
+বাংলা অর্থ:
+
+`const` দিয়ে variable-এ নতুন value assign করা বন্ধ করা হয়। অন্যদিকে `readonly` দিয়ে object বা
+class-এর নির্দিষ্ট property পরিবর্তন করা বন্ধ করা হয়।
+
+Example:
+
+```
+const name = "Monir";
+
+interface User {
+  readonly id: number;
+  name: string;
+}
+
+const user: User = {
+  id: 1,
+  name: "Monir",
+};
+
+// user.id = 2; // Error
+user.name = "Rahim"; // Allowed
+```
+
+## 28. What is a Type Guard?
+
+বাংলা প্রশ্ন: Type Guard কী?
+
+English Answer:
+
+A type guard is a technique used to check and narrow down the type of a variable before performing
+operations on it.
+
+বাংলা অর্থ:
+
+কোনো variable-এর type নিশ্চিত করার জন্য যে condition বা function ব্যবহার করা হয়, তাকে Type Guard
+বলে।
+
+Example:
+
+```
+function display(value: string | number) {
+  if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  } else {
+    console.log(value.toFixed(2));
+  }
+}
+```
+
+## 29. What is the `keyof` operator?
+
+বাংলা প্রশ্ন: Keyof operator কী?
+
+English Answer:
+
+The keyof operator creates a union of all property names of an object type.
+
+বাংলা অর্থ:
+
+`keyof` ব্যবহার করলে কোনো object type-এর সব property name নিয়ে একটি union type তৈরি হয়।
+
+Example:
+
+```
+interface User {
+  name: string;
+  age: number;
+  email: string;
+}
+
+type UserKeys = keyof User;
+
+// "name" | "age" | "email"
+```
+
+## 30. What is the `typeof` operator in TypeScript?
+
+বাংলা প্রশ্ন: TypeScript-এ typeof operator কী?
+
+English Answer:
+
+The typeof operator can be used to check the runtime type of a value. In TypeScript, it can also be
+used in type positions to create a type from an existing variable.
+
+বাংলা অর্থ:
+
+`typeof` দিয়ে runtime-এ value-এর type চেক করা যায়। আবার TypeScript-এ existing variable থেকে type
+তৈরি করতেও এটি ব্যবহার করা যায়।
+
+Example:
+
+```
+const user = {
+  name: "Monir",
+  age: 25,
+};
+
+type User = typeof user;
+```
+
+## 31. What is the `Record` utility type?
+
+বাংলা প্রশ্ন: Record Utility Type কী?
+
+English Answer:
+
+Record is a utility type that creates an object type with specific keys and a particular value type.
+
+বাংলা অর্থ:
+
+`Record` দিয়ে নির্দিষ্ট key এবং value type-সহ object type তৈরি করা যায়।
+
+Example:
+
+```
+type Roles = "admin" | "user";
+
+const permissions: Record<Roles, boolean> = {
+  admin: true,
+  user: false,
+};
+```
+
+## 32. What are Utility Types in TypeScript?
+
+বাংলা প্রশ্ন: Utility Types কী?
+
+English Answer:
+
+Utility types are built-in types that help us transform existing types into new types without
+writing everything from scratch.
+
+বাংলা অর্থ:
+
+Utility Types ব্যবহার করে আগে থেকে তৈরি type-কে পরিবর্তন করে নতুন type তৈরি করা যায়।
+
+গুরুত্বপূর্ণ Utility Types:
+
+| Utility Type     | কাজ                                 |
+| ---------------- | ----------------------------------- |
+| `Partial<T>`     | সব property optional করে            |
+| `Required<T>`    | সব property required করে            |
+| `Readonly<T>`    | সব property readonly করে            |
+| `Pick<T, K>`     | নির্দিষ্ট property নির্বাচন করে     |
+| `Omit<T, K>`     | নির্দিষ্ট property বাদ দেয়          |
+| `Record<K, T>`   | key-value object তৈরি করে           |
+| `Exclude<T, U>`  | Union থেকে নির্দিষ্ট type বাদ দেয়   |
+| `Extract<T, U>`  | Union থেকে মিল থাকা type রাখে       |
+| `NonNullable<T>` | null ও undefined বাদ দেয়            |
+| `ReturnType<T>`  | Function-এর return type বের করে     |
+| `Parameters<T>`  | Function-এর parameter types বের করে |
+
+Example:
+
+```
+interface User {
+  name: string;
+  email: string;
+  age: number;
+}
+
+type UpdateUser = Partial<User>;
+
+type UserInfo = Pick<User, "name" | "email">;
+
+type PublicUser = Omit<User, "email">;
+```
+
+# Part 3: TypeScript Advanced Interview Questions
+
+## 33. What is a Mapped Type?
+
+বাংলা প্রশ্ন: Mapped Type কী?
+
+English Answer:
+
+Mapped types allow us to create new types by transforming the properties of an existing type.
+
+বাংলা অর্থ:
+
+একটি existing type-এর সব property-এর ওপর কাজ করে নতুন type তৈরি করাকে Mapped Type বলে।
+
+Example:
+
+```
+type User = {
+  name: string;
+  age: number;
+};
+
+type OptionalUser = {
+  [K in keyof User]?: User[K];
+};
+```
+
+এখানে সব property optional হয়ে গেছে।
+
+## 34. What is a Conditional Type?
+
+বাংলা প্রশ্ন: Conditional Type কী?
+
+English Answer:
+
+Conditional types allow us to create types based on conditions. They use the extends keyword and the
+ternary operator syntax.
+
+বাংলা অর্থ:
+
+কোনো type নির্দিষ্ট শর্ত পূরণ করছে কি না, তার ওপর ভিত্তি করে নতুন type তৈরি করাকে Conditional Type
+বলে।
+
+Example:
+
+```
+type IsString<T> = T extends string
+  ? true
+  : false;
+
+type A = IsString<string>; // true
+type B = IsString<number>; // false
+```
+
+## 35. What is the difference between `unknown`, `any`, and `never`?
+
+বাংলা প্রশ্ন: Unknown, Any এবং Never-এর মধ্যে পার্থক্য কী?
+
+English Answer:
+
+Any disables type checking, unknown accepts any value but requires type checking before using it,
+and never represents values that should never occur.
+
+বাংলা অর্থ:
+
+- `any`: যেকোনো type গ্রহণ করে এবং type checking এড়িয়ে যায়।
+- `unknown`: যেকোনো type গ্রহণ করে, কিন্তু ব্যবহারের আগে type check করতে হয়।
+- `never`: এমন value বোঝায় যা কখনো ঘটতে পারে না।
+
+## 36. What is Declaration Merging?
+
+বাংলা প্রশ্ন: Declaration Merging কী?
+
+English Answer:
+
+Declaration merging is a feature in TypeScript that allows multiple declarations with the same name
+to be combined into a single definition. It works with interfaces.
+
+বাংলা অর্থ:
+
+একই নামের একাধিক interface declaration-কে একসঙ্গে combine করাকে Declaration Merging বলে।
+
+Example:
+
+```
+interface User {
+  name: string;
+}
+
+interface User {
+  age: number;
+}
+
+const user: User = {
+  name: "Monir",
+  age: 25,
+};
+```
+
+এখানে দুইটি `User` interface merge হয়ে একটি interface তৈরি হয়েছে।
+
+## 37. What is an Abstract Class?
+
+বাংলা প্রশ্ন: Abstract Class কী?
+
+English Answer:
+
+An abstract class is a class that cannot be instantiated directly. It is designed to be extended by
+other classes and can contain abstract and regular methods.
+
+বাংলা অর্থ:
+
+Abstract Class সরাসরি object তৈরি করতে ব্যবহার করা যায় না। অন্য class এটিকে extend করে ব্যবহার করে।
+
+Example:
+
+```
+abstract class Animal {
+  abstract makeSound(): void;
+
+  move(): void {
+    console.log("Moving...");
+  }
+}
+
+class Dog extends Animal {
+  makeSound(): void {
+    console.log("Bark");
+  }
+}
+
+const dog = new Dog();
+dog.makeSound();
+```
+
+## 38. What is an Interface in TypeScript?
+
+বাংলা প্রশ্ন: Interface কী?
+
+English Answer:
+
+An interface defines the structure of an object. It specifies which properties and methods an object
+should have without providing their implementation.
+
+বাংলা অর্থ:
+
+Interface দিয়ে object-এর structure নির্ধারণ করা হয়। অর্থাৎ object-এর মধ্যে কী কী property এবং method
+থাকবে, তা define করা হয়।
+
+Example:
+
+```
+interface User {
+  name: string;
+  email: string;
+
+  greet(): void;
+}
+
+const user: User = {
+  name: "Monir",
+  email: "monir@example.com",
+
+  greet() {
+    console.log("Hello!");
+  },
+};
+```
+
+## 39. What is the difference between `implements` and `extends`?
+
+বাংলা প্রশ্ন: Implements এবং Extends-এর মধ্যে পার্থক্য কী?
+
+English Answer:
+
+Extends is used to inherit properties and methods from a class or interface. Implements is used by a
+class to follow the structure defined by an interface.
+
+বাংলা অর্থ:
+
+- `extends`: অন্য class-এর functionality inherit করতে অথবা interface extend করতে ব্যবহার হয়।
+- `implements`: কোনো class একটি interface-এর structure অনুসরণ করছে কি না, তা নিশ্চিত করতে ব্যবহার
+  হয়।
+
+Example:
+
+```
+interface User {
+  name: string;
+}
+
+class Person implements User {
+  name = "Monir";
+}
+
+class Animal {
+  move() {
+    console.log("Moving");
+  }
+}
+
+class Dog extends Animal {
+  bark() {
+    console.log("Barking");
+  }
+}
+```
+
+## 40. What is a Discriminated Union?
+
+বাংলা প্রশ্ন: Discriminated Union কী?
+
+English Answer:
+
+A discriminated union is a union of object types that share a common property with different literal
+values. It helps TypeScript identify and narrow down the correct type.
+
+বাংলা অর্থ:
+
+একাধিক object type-এর মধ্যে একটি common property থাকে, যার value আলাদা হয়। সেই property দেখে
+TypeScript নির্ধারণ করতে পারে কোন object type ব্যবহার হচ্ছে।
+
+Example:
+
+```
+type Success = {
+  status: "success";
+  data: string;
+};
+
+type Failure = {
+  status: "error";
+  message: string;
+};
+
+type Result = Success | Failure;
+
+function handleResult(result: Result) {
+  if (result.status === "success") {
+    console.log(result.data);
+  } else {
+    console.log(result.message);
+  }
+}
+```
+
+## 41. What is `as const` in TypeScript?
+
+বাংলা প্রশ্ন: As Const কী?
+
+English Answer:
+
+The as const assertion tells TypeScript to infer the most specific literal types and make object
+properties and array elements readonly.
+
+বাংলা অর্থ:
+
+`as const` ব্যবহার করলে TypeScript সাধারণ type-এর পরিবর্তে নির্দিষ্ট literal type নির্ধারণ করে এবং
+object property ও array element readonly করে।
+
+Example:
+
+```
+const user = {
+  name: "Monir",
+  role: "admin",
+} as const;
+
+// user.name = "Rahim"; // Error
+```
+
+## 42. What is the difference between `==` and `===`?
+
+বাংলা প্রশ্ন: Double Equal এবং Triple Equal-এর মধ্যে পার্থক্য কী?
+
+English Answer:
+
+The == operator compares values after performing type coercion, while the === operator compares both
+value and type without type coercion.
+
+বাংলা অর্থ:
+
+- `==` শুধু value তুলনা করার আগে type conversion করতে পারে।
+- `===` value এবং data type দুটোই তুলনা করে।
+
+Example:
+
+```
+console.log(10 == "10");  // true
+console.log(10 === "10"); // false
+```
+
+## 43. What is Type Compatibility?
+
+বাংলা প্রশ্ন: Type Compatibility কী?
+
+English Answer:
+
+Type compatibility determines whether a value of one type can be assigned to a variable of another
+type. TypeScript mainly uses structural typing to check compatibility.
+
+বাংলা অর্থ:
+
+একটি type-এর value অন্য একটি type-এর variable-এ assign করা যাবে কি না, সেটি Type Compatibility
+নির্ধারণ করে।
+
+Example:
+
+```
+interface User {
+  name: string;
+}
+
+const person = {
+  name: "Monir",
+  age: 25,
+};
+
+const user: User = person;
+```
+
+এটি valid, কারণ `person`-এর মধ্যে `User` interface-এর প্রয়োজনীয় `name` property রয়েছে।
+
+## 44. What is Structural Typing?
+
+বাংলা প্রশ্ন: Structural Typing কী?
+
+English Answer:
+
+Structural typing is a type system where compatibility is determined by the structure of a type
+rather than its explicit name or declaration.
+
+বাংলা অর্থ:
+
+কোনো type-এর নাম কী, সেটির চেয়ে তার property এবং structure কেমন, তার ওপর ভিত্তি করে compatibility
+নির্ধারণ করাকে Structural Typing বলে।
+
+## 45. Does TypeScript provide runtime type checking?
+
+বাংলা প্রশ্ন: TypeScript কি Runtime-এ type checking করে?
+
+English Answer:
+
+No. TypeScript performs static type checking during development and compilation. Type annotations
+are removed during compilation, so they do not exist at runtime. For runtime validation, we can use
+libraries like Zod.
+
+বাংলা অর্থ:
+
+না। TypeScript মূলত development এবং compile করার সময় type checking করে। Compile হওয়ার পরে
+TypeScript-এর type annotation JavaScript-এ থাকে না।
+
+Runtime validation-এর জন্য Zod-এর মতো library ব্যবহার করা যায়।
+
+Example:
+
+```
+import { z } from "zod";
+
+const userSchema = z.object({
+  name: z.string(),
+  age: z.number(),
+});
+
+const result = userSchema.safeParse({
+  name: "Monir",
+  age: 25,
+});
+
+console.log(result.success);
+```
+
+# Part 4: Practical TypeScript Questions for Full-Stack Developers
+
+তোমার Next.js, Node.js, Express.js এবং PostgreSQL stack-এর interview-তে নিচের প্রশ্নগুলোও
+গুরুত্বপূর্ণ।
+
+## 46. How do you define an API response type?
+
+বাংলা প্রশ্ন: API Response-এর type কীভাবে define করবে?
+
+English Answer:
+
+I use interfaces or generic types to define API response structures. This helps maintain consistency
+and type safety across the application.
+
+বাংলা অর্থ:
+
+API থেকে কী ধরনের response আসবে, সেটি Interface অথবা Generic Type দিয়ে define করি। এতে
+application-এর বিভিন্ন জায়গায় একই structure বজায় থাকে।
+
+Example:
+
+```
+interface ApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
+}
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+type UserResponse = ApiResponse<User>;
+```
+
+## 47. How do you handle errors in TypeScript?
+
+বাংলা প্রশ্ন: TypeScript-এ Error কীভাবে handle করো?
+
+English Answer:
+
+I use try-catch blocks to handle errors. In TypeScript, the caught error is treated as unknown, so I
+check its type before accessing its properties.
+
+বাংলা অর্থ:
+
+Error handle করার জন্য `try-catch` ব্যবহার করি। TypeScript-এ catch block-এর error সাধারণত `unknown`
+হিসেবে বিবেচিত হয়। তাই property access করার আগে type check করি।
+
+Example:
+
+```
+try {
+  throw new Error("Something went wrong");
+} catch (error) {
+  if (error instanceof Error) {
+    console.log(error.message);
+  }
+}
+```
+
+## 48. What is the difference between `Promise` and `async/await`?
+
+বাংলা প্রশ্ন: Promise এবং Async/Await-এর মধ্যে পার্থক্য কী?
+
+English Answer:
+
+A Promise represents the eventual completion or failure of an asynchronous operation. Async/await is
+a syntax built on top of Promises that makes asynchronous code easier to read and maintain.
+
+বাংলা অর্থ:
+
+Promise হলো asynchronous operation-এর ভবিষ্যৎ result বা error বোঝানোর ব্যবস্থা। Async/Await
+Promise-এর ওপর ভিত্তি করে তৈরি একটি syntax, যা asynchronous code সহজে লিখতে সাহায্য করে।
+
+Example:
+
+```
+async function getUser(): Promise<string> {
+  return "Monir";
+}
+
+getUser().then((user) => {
+  console.log(user);
+});
+```
+
+## 49. What is a Type Declaration File?
+
+বাংলা প্রশ্ন: Type Declaration File কী?
+
+English Answer:
+
+A declaration file is a file with the `.d.ts` extension that provides type information for
+JavaScript code or libraries without containing their actual implementation.
+
+বাংলা অর্থ:
+
+`.d.ts` হলো Type Declaration File। এটি JavaScript library বা code-এর type information প্রদান করে,
+কিন্তু actual implementation থাকে না।
+
+## 50. What is the difference between `tsconfig.json` and `package.json`?
+
+বাংলা প্রশ্ন: tsconfig.json এবং package.json-এর মধ্যে পার্থক্য কী?
+
+English Answer:
+
+The tsconfig.json file configures the TypeScript compiler, while package.json manages project
+metadata, dependencies, scripts, and package information.
+
+বাংলা অর্থ:
+
+- `tsconfig.json`: TypeScript compiler-এর configuration নিয়ন্ত্রণ করে।
+- `package.json`: Project-এর dependencies, scripts এবং metadata পরিচালনা করে।
+
+# Part 5: Important TypeScript Coding Interview Problems
+
+শুধু theory পড়লে হবে না। Interview-তে coding problem-ও আসতে পারে। এগুলো practice করো।
+
+Coding Practice
+
+0/6 solved/revealed
+
+1\. Create a function that returns the sum of two numbers.
+
+দুটি সংখ্যার যোগফল return করে এমন function তৈরি করো।
+
+Show answer
+
+2\. Create a function that checks whether a number is even or odd.
+
+একটি সংখ্যা জোড় নাকি বিজোড় তা check করো।
+
+Show answer
+
+3\. Create an interface for a Product.
+
+একটি Product-এর জন্য interface তৈরি করো।
+
+Show answer
+
+4\. Create a generic function that returns the first element of an array.
+
+Generic function তৈরি করো, যা array-এর প্রথম element return করবে।
+
+Show answer
+
+5\. Create a function that accepts a string or number.
+
+এমন function তৈরি করো যা string অথবা number গ্রহণ করবে।
+
+Show answer
+
+6\. Create a type that makes all User properties optional.
+
+User-এর সব property optional করে নতুন type তৈরি করো।
+
+Show answer
+
+# কীভাবে Interview-এর জন্য প্রস্তুতি নেবে?
+
+আমার পরামর্শ, ৫০টি প্রশ্ন একসঙ্গে মুখস্থ করার চেষ্টা করবে না।
+
+| Day   | Preparation     |
+| ----- | --------------- |
+| Day 1 | Questions 1–10  |
+| Day 2 | Questions 11–20 |
+| Day 3 | Questions 21–30 |
+| Day 4 | Questions 31–40 |
+| Day 5 | Questions 41–50 |
+| Day 6 | Coding Problems |
+| Day 7 | Mock Interview  |
+
+English Speaking Practice: প্রতিদিন ৫টি প্রশ্ন বেছে নেবে। প্রথমে উত্তর পড়বে, তারপর বাংলা না দেখে
+নিজের ভাষায় ইংরেজিতে বলার চেষ্টা করবে।
+
+মনে রাখবে, interview-তে perfect English বলার চেয়ে concept পরিষ্কারভাবে explain করতে পারা বেশি
+গুরুত্বপূর্ণ।
+
+# Let's Practice: TypeScript Mock Interview
+
+এখন থেকে আমি তোমাকে একজন interviewer-এর মতো প্রশ্ন করব। তুমি ইংরেজিতে উত্তর দেবে। আমি তোমার উত্তর
+correct করে দেব এবং বাংলায় বুঝিয়ে দেব।
+
+Question 1
+
+Beginner level
+
+What is TypeScript, and why do you use it in your projects?
+
+বাংলা অর্থ: TypeScript কী এবং তুমি তোমার project-এ এটি কেন ব্যবহার করো?
+
+Submit AnswerHint

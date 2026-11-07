@@ -54,7 +54,6 @@
     }
 
     // Rectrangle = h * w
-
     class Rectrangle extends Shape {
         height: number;
         width: number;
