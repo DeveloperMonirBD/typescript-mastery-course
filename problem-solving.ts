@@ -270,8 +270,51 @@ async function fetchData<T>(data: T): Promise<ApiResponse<T>> {
 async function run() {
     const result = await fetchData<{ id: number; title: string }>({ id: 1, title: 'Post One' });
     console.log(result.data.title);
-};
+}
 
 run();
 
 //* Problem 18: Function Overloading
+
+function combine(a: string, b: string): string;
+function combine(a: number, b: number): number;
+
+function combine(a: any, b: any): any {
+    return a + b;
+}
+
+// Test
+console.log(combine('Hello, ', 'TypeScript')); // "Hello, TypeScript"
+console.log(combine(15, 30));
+
+//* Problem 19: Tuple Type Manipulation
+
+type Point3D = [x: number, y: number, z: number];
+
+function getDistanceFromOrigin(point: Point3D): number {
+  const [x, y, z] = point;
+  return Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+}
+
+// Test
+console.log(getDistanceFromOrigin([3, 4, 12])); // 13
+
+//* Problem 20: Mapped Types
+
+type Nullable<T> = {
+    [P in keyof T]: T[P] | null;
+};
+
+interface UserConfig {
+    theme: string;
+    notifications: boolean;
+}
+
+type FlexibleConfig = Nullable<UserConfig>;
+
+const currentConfig: FlexibleConfig = {
+    theme: 'dark',
+    notifications: null // valid
+};
+
+console.log(currentConfig);

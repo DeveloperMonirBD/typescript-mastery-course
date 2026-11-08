@@ -1,1 +1,1 @@
-import './problem-solving.js';
+import '../../../problem-solving.js';
