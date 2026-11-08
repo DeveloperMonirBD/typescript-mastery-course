@@ -228,7 +228,7 @@ const newEmployee: Employee = {
     phone: '038757458'
 };
 
-console.log(newEmployee); 
+console.log(newEmployee);
 
 //* Problem 15: Readonly Arrays & Properties
 function sumImmutableArray(numbers: ReadonlyArray<number>): number {
@@ -252,3 +252,26 @@ const envVariables: StringDictionary = {
 console.log(envVariables['PORT']);
 
 //* Problem 17: Async/Await with Strongly Typed API Promises
+
+interface ApiResponse<T> {
+    data: T;
+    status: number;
+}
+
+async function fetchData<T>(data: T): Promise<ApiResponse<T>> {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({ data, status: 200 });
+        }, 500);
+    });
+}
+
+// Test
+async function run() {
+    const result = await fetchData<{ id: number; title: string }>({ id: 1, title: 'Post One' });
+    console.log(result.data.title);
+};
+
+run();
+
+//* Problem 18: Function Overloading
